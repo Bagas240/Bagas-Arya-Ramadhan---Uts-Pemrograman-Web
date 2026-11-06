@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stok Buku - Perpustakaan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="stok">
+    <header class="navbar">
+        <div class="kiri">
+            <a class="merek" href="dashboard.html"><img src="assets/logo.png" alt="" class="logo-kecil">Perpustakaan</a>
+            <nav class="menu" aria-label="Menu utama">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="stok.html" aria-current="page">Stok</a>
+                <a href="checkout.html">Pemesanan</a>
+                <a href="tracking.html">Tracking</a>
+            </nav>
+        </div>
+        <div class="akun">
+            <span id="namaAkun"></span>
+            <button type="button" class="tombol sekunder" id="btnKeluar">Keluar</button>
+        </div>
+    </header>
+    <main class="wadah">
+        <div class="judul-halaman">
+            <h1>Informasi Stok / Katalog</h1>
+            <p>Daftar buku yang tersedia beserta stok dan harga.</p>
+        </div>
+
+        <section class="kartu" aria-label="Daftar buku">
+            <div class="baris-form">
+                <label for="cariBuku">Cari buku</label>
+                <input type="search" id="cariBuku" placeholder="Ketik judul, kode, atau jenis buku">
+            </div>
+            <p id="infoKatalog" class="info-kecil" aria-live="polite"></p>
+            <div class="gulir">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Cover</th>
+                            <th scope="col">Kode</th>
+                            <th scope="col">Nama barang</th>
+                            <th scope="col">Jenis</th>
+                            <th scope="col">Edisi</th>
+                            <th scope="col" class="angka">Stok</th>
+                            <th scope="col" class="angka">Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody id="isiKatalog"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="kartu" aria-labelledby="judulTambah">
+            <h2 id="judulTambah">Tambah stok baru</h2>
+            <form novalidate id="formTambah">
+                <div class="kolom-2 baris-form">
+                    <div>
+                        <label for="kode">Kode barang</label>
+                        <input type="text" id="kode" required pattern="[A-Za-z]{3,5}[0-9]{3,4}" data-pesan="Kode terdiri dari 3-5 huruf lalu 3-4 angka, contoh WEB1001.">
+                    </div>
+                    <div>
+                        <label for="nama">Nama barang</label>
+                        <input type="text" id="nama" required minlength="3" data-pesan="Nama barang minimal 3 karakter.">
+                    </div>
+                </div>
+                <div class="kolom-3 baris-form">
+                    <div>
+                        <label for="jenis">Jenis barang</label>
+                        <select id="jenis">
+                            <option>Buku Ajar</option>
+                            <option>Modul</option>
+                            <option>Buku Referensi</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="edisi">Edisi</label>
+                        <input type="text" id="edisi" required pattern="[0-9]{1,2}" data-pesan="Edisi berupa angka, contoh 1.">
+                    </div>
+                    <div>
+                        <label for="stokBaru">Jumlah stok</label>
+                        <input type="number" id="stokBaru" min="0" required data-pesan="Jumlah stok tidak boleh negatif.">
+                    </div>
+                </div>
+                <div class="baris-form">
+                    <label for="harga">Harga (Rp)</label>
+                    <input type="number" id="harga" min="1000" required data-pesan="Harga minimal Rp 1.000.">
+                </div>
+                <button type="submit" class="tombol">Tambah ke tabel</button>
+            </form>
+            <div id="pesanTambah" class="pesan" role="status"></div>
+        </section>
+    </main>
+    <footer class="kaki">
+        <p>Perpustakaan - Tugas UTS Pemrograman Web</p>
+    </footer>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pemesanan - Perpustakaan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="checkout">
+    <header class="navbar">
+        <div class="kiri">
+            <a class="merek" href="dashboard.html"><img src="assets/logo.png" alt="" class="logo-kecil">Perpustakaan</a>
+            <nav class="menu" aria-label="Menu utama">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="stok.html">Stok</a>
+                <a href="checkout.html" aria-current="page">Pemesanan</a>
+                <a href="tracking.html">Tracking</a>
+            </nav>
+        </div>
+        <div class="akun">
+            <span id="namaAkun"></span>
+            <button type="button" class="tombol sekunder" id="btnKeluar">Keluar</button>
+        </div>
+    </header>
+    <main class="wadah">
+        <div class="judul-halaman">
+            <h1>Pemesanan</h1>
+            <p>Pilih buku, atur jumlahnya, lalu isi data pemesan dan pembayaran.</p>
+        </div>
+
+        <section class="kartu" aria-labelledby="judulPesanan">
+            <h2 id="judulPesanan">Data pesanan</h2>
+            <div class="kolom-3 baris-form" style="align-items:end">
+                <div style="grid-column: span 2">
+                    <label for="pilihBuku">Buku</label>
+                    <select id="pilihBuku"></select>
+                </div>
+                <div>
+                    <label for="jumlahBuku">Jumlah</label>
+                    <input type="number" id="jumlahBuku" min="1" value="1">
+                </div>
+            </div>
+            <button type="button" class="tombol sekunder" id="btnTambahBuku">Tambah ke pesanan</button>
+            <div id="pesanKeranjang" class="pesan" role="status"></div>
+
+            <div class="gulir" style="margin-top:16px">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Buku</th>
+                            <th scope="col" class="angka">Harga</th>
+                            <th scope="col">Jumlah</th>
+                            <th scope="col" class="angka">Subtotal</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="isiKeranjang"></tbody>
+                </table>
+            </div>
+            <div class="total-baris">
+                <span>Total pembayaran</span>
+                <strong id="totalBayar">Rp 0</strong>
+            </div>
+        </section>
+
+        <form novalidate id="formPesan" class="kartu">
+            <h2>Data pemesan dan pembayaran</h2>
+            <div class="kolom-2 baris-form">
+                <div>
+                    <label for="namaPemesan">Nama pemesan</label>
+                    <input type="text" id="namaPemesan" required minlength="3" data-pesan="Nama minimal 3 karakter.">
+                </div>
+                <div>
+                    <label for="emailPemesan">Email</label>
+                    <input type="email" id="emailPemesan" required data-pesan="Format email tidak valid, contoh: nama@gmail.com.">
+                </div>
+            </div>
+            <div class="baris-form">
+                <label for="teleponPemesan">Nomor telepon</label>
+                <input type="tel" id="teleponPemesan" required pattern="(\+62|62|0)8[0-9]{8,12}" data-pesan="Gunakan nomor Indonesia, contoh 081234567890.">
+            </div>
+            <div class="baris-form">
+                <label for="alamatPemesan">Alamat pengiriman</label>
+                <textarea id="alamatPemesan" required minlength="10" data-pesan="Alamat minimal 10 karakter."></textarea>
+            </div>
+            <div class="kolom-2 baris-form">
+                <div>
+                    <label for="ekspedisi">Ekspedisi</label>
+                    <select id="ekspedisi">
+                        <option>JNE</option>
+                        <option>Pos Indonesia</option>
+                        <option>J&amp;T Express</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="pembayaran">Metode pembayaran</label>
+                    <select id="pembayaran">
+                        <option>Transfer Bank</option>
+                        <option>Kartu Kredit</option>
+                        <option>E-Wallet</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="tombol">Buat pesanan</button>
+            <div id="pesanPesan" class="pesan" role="status"></div>
+        </form>
+    </main>
+    <footer class="kaki">
+        <p>Perpustakaan - Tugas UTS Pemrograman Web</p>
+    </footer>
+
+    <div class="modal" id="modalSukses" role="dialog" aria-modal="true" aria-labelledby="judulSukses">
+        <div class="modal-isi">
+            <div class="modal-kepala">
+                <h2 id="judulSukses">Pesanan berhasil dibuat</h2>
+                <button type="button" class="tutup" onclick="tutupModal('modalSukses')" aria-label="Tutup">&times;</button>
+            </div>
+            <p>Nomor Delivery Order Anda: <strong id="noDO"></strong></p>
+            <p>Total pembayaran: <strong id="totalDO"></strong></p>
+            <a class="tombol" href="tracking.html">Lacak pesanan</a>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

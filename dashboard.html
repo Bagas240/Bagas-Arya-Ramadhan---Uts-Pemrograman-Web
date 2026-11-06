@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard - Perpustakaan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="dashboard">
+    <header class="navbar">
+        <div class="kiri">
+            <a class="merek" href="dashboard.html"><img src="assets/logo.png" alt="" class="logo-kecil">Perpustakaan</a>
+            <nav class="menu" aria-label="Menu utama">
+                <a href="dashboard.html" aria-current="page">Dashboard</a>
+                <a href="stok.html">Stok</a>
+                <a href="checkout.html">Pemesanan</a>
+                <a href="tracking.html">Tracking</a>
+            </nav>
+        </div>
+        <div class="akun">
+            <span id="namaAkun"></span>
+            <button type="button" class="tombol sekunder" id="btnKeluar">Keluar</button>
+        </div>
+    </header>
+    <main class="wadah">
+        <section class="sapaan" aria-labelledby="sapaan">
+            <h1 id="sapaan"></h1>
+            <p id="tanggal"></p>
+        </section>
+        <section class="ringkasan" aria-label="Ringkasan">
+            <div><b id="ringJudul">0</b><span>Judul buku di katalog</span></div>
+            <div><b id="ringStok">0</b><span>Total stok buku</span></div>
+            <div><b id="ringTransaksi">0</b><span>Jumlah transaksi</span></div>
+        </section>
+        <section class="grid-menu" aria-label="Menu utama">
+            <a class="item-menu" href="stok.html">
+                <strong>Informasi Stok / Katalog</strong>
+                <span>Lihat daftar buku, stok, dan harga.</span>
+            </a>
+            <a class="item-menu" href="tracking.html">
+                <strong>Tracking Pengiriman</strong>
+                <span>Lacak pesanan dengan nomor Delivery Order.</span>
+            </a>
+            <button type="button" class="item-menu" id="btnLaporan">
+                <strong>Laporan Pemesanan</strong>
+                <span>Ringkasan jumlah pesanan dan total pembayaran.</span>
+            </button>
+            <button type="button" class="item-menu" id="btnHistory">
+                <strong>History Transaksi</strong>
+                <span>Daftar transaksi yang pernah dibuat.</span>
+            </button>
+        </section>
+        <p style="margin-top:20px"><a class="tombol" href="checkout.html">Buat pesanan baru</a></p>
+    </main>
+    <footer class="kaki">
+        <p>Perpustakaan - Tugas UTS Pemrograman Web</p>
+    </footer>
+
+    <div class="modal" id="modalLaporan" role="dialog" aria-modal="true" aria-labelledby="judulLaporan">
+        <div class="modal-isi lebar">
+            <div class="modal-kepala">
+                <h2 id="judulLaporan">Laporan Pemesanan</h2>
+                <button type="button" class="tutup" onclick="tutupModal('modalLaporan')" aria-label="Tutup">&times;</button>
+            </div>
+            <div class="ringkasan">
+                <div><b id="lapJumlah">0</b><span>Jumlah pesanan</span></div>
+                <div><b id="lapBuku">0</b><span>Total buku dipesan</span></div>
+                <div><b id="lapTotal">Rp 0</b><span>Total pembayaran</span></div>
+            </div>
+            <div class="gulir">
+                <table>
+                    <thead><tr><th scope="col">Judul buku</th><th scope="col" class="angka">Jumlah dipesan</th></tr></thead>
+                    <tbody id="lapIsi"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalHistory" role="dialog" aria-modal="true" aria-labelledby="judulHistory">
+        <div class="modal-isi lebar">
+            <div class="modal-kepala">
+                <h2 id="judulHistory">History Transaksi</h2>
+                <button type="button" class="tutup" onclick="tutupModal('modalHistory')" aria-label="Tutup">&times;</button>
+            </div>
+            <div class="gulir">
+                <table>
+                    <thead>
+                        <tr><th scope="col">Nomor DO</th><th scope="col">Tanggal</th><th scope="col">Pemesan</th><th scope="col" class="angka">Total</th><th scope="col">Status</th></tr>
+                    </thead>
+                    <tbody id="histIsi"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

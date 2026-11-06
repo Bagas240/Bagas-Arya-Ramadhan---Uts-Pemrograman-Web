@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tracking Pengiriman - Perpustakaan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="tracking">
+    <header class="navbar">
+        <div class="kiri">
+            <a class="merek" href="dashboard.html"><img src="assets/logo.png" alt="" class="logo-kecil">Perpustakaan</a>
+            <nav class="menu" aria-label="Menu utama">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="stok.html">Stok</a>
+                <a href="checkout.html">Pemesanan</a>
+                <a href="tracking.html" aria-current="page">Tracking</a>
+            </nav>
+        </div>
+        <div class="akun">
+            <span id="namaAkun"></span>
+            <button type="button" class="tombol sekunder" id="btnKeluar">Keluar</button>
+        </div>
+    </header>
+    <main class="wadah">
+        <div class="judul-halaman">
+            <h1>Tracking Pengiriman</h1>
+            <p>Masukkan nomor Delivery Order untuk melihat status pengiriman.</p>
+        </div>
+
+        <section class="kartu" aria-label="Pencarian pengiriman">
+            <form novalidate id="formCari" class="cari">
+                <label for="nomorDO" class="sr-only">Nomor Delivery Order</label>
+                <input type="text" id="nomorDO" placeholder="Contoh: 20230012" required inputmode="numeric" pattern="[0-9]{6,12}" data-pesan="Nomor DO berupa angka 6-12 digit.">
+                <button type="submit" class="tombol">Cari</button>
+            </form>
+            <div id="pesanCari" class="pesan" role="status"></div>
+        </section>
+
+        <section class="kartu" id="hasil" style="display:none" aria-live="polite">
+            <h2>Hasil pencarian</h2>
+            <dl class="info-pengiriman">
+                <div><dt>Nama pemesan</dt><dd id="hNama"></dd></div>
+                <div><dt>Status pengiriman</dt><dd><span class="lencana" id="hStatus"></span></dd></div>
+                <div><dt>Ekspedisi</dt><dd id="hEkspedisi"></dd></div>
+                <div><dt>Tanggal kirim</dt><dd id="hTanggal"></dd></div>
+                <div><dt>Jenis paket</dt><dd id="hPaket"></dd></div>
+                <div><dt>Total pembayaran</dt><dd id="hTotal"></dd></div>
+            </dl>
+            <div class="langkah" id="langkah"></div>
+            <h3 style="margin-top:20px">Riwayat perjalanan</h3>
+            <ul class="riwayat" id="riwayat"></ul>
+        </section>
+    </main>
+    <footer class="kaki">
+        <p>Perpustakaan - Tugas UTS Pemrograman Web</p>
+    </footer>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

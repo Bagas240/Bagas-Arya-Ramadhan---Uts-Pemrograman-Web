@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Perpustakaan</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="login">
+    <main class="halaman-login">
+        <section class="kartu kotak-login" aria-labelledby="merek">
+            <h1 class="merek-besar" id="merek"><img src="assets/logo.png" alt="" class="logo-besar">Perpustakaan</h1>
+            <p class="sub">Masuk untuk memesan buku.</p>
+            <form novalidate id="formLogin">
+                <div class="baris-form">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required autocomplete="username" data-pesan="Format email tidak valid, contoh: nama@gmail.com.">
+                </div>
+                <div class="baris-form">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="tombol penuh">Login</button>
+            </form>
+            <div id="pesanLogin" class="pesan" role="status"></div>
+            <div class="tautan-bawah">
+                <button type="button" class="tautan-tombol" id="btnLupa">Lupa Password</button>
+                <button type="button" class="tautan-tombol" id="btnDaftar">Daftar</button>
+            </div>
+        </section>
+    </main>
+    <footer class="kaki">
+        <p>Perpustakaan - Tugas UTS Pemrograman Web</p>
+    </footer>
+
+    <div class="modal" id="modalLupa" role="dialog" aria-modal="true" aria-labelledby="judulLupa">
+        <div class="modal-isi">
+            <div class="modal-kepala">
+                <h2 id="judulLupa">Lupa Password</h2>
+                <button type="button" class="tutup" onclick="tutupModal('modalLupa')" aria-label="Tutup">&times;</button>
+            </div>
+            <p>Masukkan email akun Anda. Kami akan mengirim tautan untuk mengatur ulang password.</p>
+            <form novalidate id="formLupa">
+                <div class="baris-form">
+                    <label for="emailLupa">Email</label>
+                    <input type="email" id="emailLupa" required data-pesan="Format email tidak valid, contoh: nama@gmail.com.">
+                </div>
+                <button type="submit" class="tombol penuh">Kirim tautan</button>
+            </form>
+            <div id="pesanLupa" class="pesan" role="status"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalDaftar" role="dialog" aria-modal="true" aria-labelledby="judulDaftar">
+        <div class="modal-isi">
+            <div class="modal-kepala">
+                <h2 id="judulDaftar">Daftar Akun</h2>
+                <button type="button" class="tutup" onclick="tutupModal('modalDaftar')" aria-label="Tutup">&times;</button>
+            </div>
+            <form novalidate id="formDaftar">
+                <div class="baris-form">
+                    <label for="namaDaftar">Nama lengkap</label>
+                    <input type="text" id="namaDaftar" required minlength="3" data-pesan="Nama minimal 3 karakter.">
+                </div>
+                <div class="baris-form">
+                    <label for="emailDaftar">Email</label>
+                    <input type="email" id="emailDaftar" required data-pesan="Format email tidak valid, contoh: nama@gmail.com.">
+                </div>
+                <div class="baris-form">
+                    <label for="passDaftar">Password</label>
+                    <input type="password" id="passDaftar" required minlength="6" autocomplete="new-password" data-pesan="Password minimal 6 karakter.">
+                </div>
+                <div class="baris-form">
+                    <label for="passUlang">Ulangi password</label>
+                    <input type="password" id="passUlang" required autocomplete="new-password">
+                </div>
+                <button type="submit" class="tombol penuh">Daftar</button>
+            </form>
+            <div id="pesanDaftar" class="pesan" role="status"></div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
