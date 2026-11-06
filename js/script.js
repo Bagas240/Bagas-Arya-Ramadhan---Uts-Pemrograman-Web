@@ -1,4 +1,3 @@
-/* ===== Fungsi umum ===== */
 function ambil(kunci, bawaan) {
     try {
         var nilai = localStorage.getItem(kunci);
@@ -55,7 +54,6 @@ function tanggalHariIni() {
     return d.getFullYear() + "-" + bln + "-" + tgl;
 }
 
-/* ===== Validasi form: pesan error tampil di kotak pesan dan bidang diberi tanda ===== */
 function validasiForm(form, idPesan) {
     var bidang = form.querySelectorAll("input, select, textarea");
     bidang.forEach(function (f) {
@@ -83,7 +81,6 @@ function validasiForm(form, idPesan) {
     return true;
 }
 
-/* ===== Navbar dan penjaga halaman ===== */
 function pasangNavbar() {
     var u = sesi();
     var nama = el("namaAkun");
@@ -97,7 +94,6 @@ function pasangNavbar() {
     }
 }
 
-/* ===== Halaman login ===== */
 function initLogin() {
     if (sesi()) {
         location.href = "dashboard.html";
@@ -175,7 +171,6 @@ function initLogin() {
     });
 }
 
-/* ===== Dashboard ===== */
 function sapaanWaktu() {
     var jam = new Date().getHours();
     if (jam >= 4 && jam < 11) return "Selamat pagi";
@@ -268,7 +263,6 @@ function initDashboard() {
     });
 }
 
-/* ===== Stok / katalog ===== */
 function barisBuku(b, no) {
     var tr = buat("tr");
     tr.appendChild(buat("td", no));
@@ -333,7 +327,6 @@ function initStok() {
         var tambahan = ambil("perpus_stok_tambahan", []);
         tambahan.push(baru);
         simpan("perpus_stok_tambahan", tambahan);
-        /* tambah baris langsung ke tabel lewat DOM */
         el("isiKatalog").appendChild(barisBuku(baru, el("isiKatalog").rows.length + 1));
         saringKatalog();
         tampilPesan("pesanTambah", "Stok baru berhasil ditambahkan.", "sukses");
@@ -341,7 +334,6 @@ function initStok() {
     });
 }
 
-/* ===== Pemesanan / checkout ===== */
 function ambilKeranjang() {
     return ambil("perpus_keranjang", []);
 }
@@ -489,7 +481,6 @@ function initCheckout() {
     });
 }
 
-/* ===== Tracking ===== */
 var TAHAP = ["Diproses", "Dikirim", "Dalam Perjalanan", "Diterima"];
 function cariPengiriman(no) {
     if (dataTracking[no]) return dataTracking[no];
@@ -550,7 +541,6 @@ function initTracking() {
     }
 }
 
-/* ===== Mulai ===== */
 document.addEventListener("DOMContentLoaded", function () {
     var halaman = document.body.dataset.halaman;
     if (halaman === "login") {
