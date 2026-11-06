@@ -9,7 +9,7 @@ Tugas UTS Pemrograman Web. Aplikasi web sederhana untuk pemesanan buku pada toko
 | Nama | Bagas |
 | NIM | 312510328 |
 | Mata kuliah | Pemrograman Web |
-| Video presentasi (YouTube) | |
+| Video presentasi (YouTube) | https://youtu.be/y1wnSpH0tBI |
 
 ## Teknologi
 
