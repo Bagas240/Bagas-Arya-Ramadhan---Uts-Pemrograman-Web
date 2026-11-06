@@ -7,10 +7,9 @@ Tugas UTS Pemrograman Web. Aplikasi web sederhana untuk pemesanan buku pada toko
 | Keterangan | Isi |
 |---|---|
 | Nama | Bagas |
-| NIM | (isi NIM) |
-| Mata kuliah | (isi nama mata kuliah) |
-| Nama aplikasi | Perpustakaan |
-| Video presentasi (YouTube) | (tempel link YouTube di sini) |
+| NIM | 312510328 |
+| Mata kuliah | Pemrograman Web |
+| Video presentasi (YouTube) | |
 
 ## Teknologi
 
@@ -47,9 +46,7 @@ tugas-uts-web1/
 
 ## Cara Menjalankan
 
-1. Ekstrak atau clone repository.
-2. Buka `index.html` di browser (Chrome, Edge, atau Firefox). Tidak perlu instalasi apa pun.
-3. Login dengan akun uji coba:
+Login dengan akun uji coba:
    - Email: `Bagas@gmail.com`
    - Password: `bagas123`
 
@@ -138,8 +135,3 @@ Jika nomor tidak ditemukan, muncul pesan kesalahan.
 ## Validasi Form
 
 Semua form memakai atribut `novalidate` dan fungsi `validasiForm()` pada `script.js`. Jika ada isian yang salah, pesan error muncul pada kotak pesan di bawah form, kolom yang salah diberi garis merah, dan kursor dipindahkan ke kolom tersebut. Aturan yang dipakai antara lain: email berformat benar, password minimal 6 karakter, nomor telepon berformat Indonesia, kode barang 3-5 huruf diikuti 3-4 angka, harga minimal Rp 1.000, dan jumlah pesanan tidak boleh melebihi stok.
-
-## Catatan
-
-- Data pengguna baru, stok tambahan, pesanan, dan transaksi disimpan di `localStorage` browser, sehingga tetap ada setelah halaman dimuat ulang tetapi hanya berlaku di browser yang sama.
-- Alert pesan login salah adalah dialog bawaan browser sehingga tidak ikut terambil pada tangkapan layar otomatis. Pesan yang tampil: "Email/password yang anda masukkan salah".
